@@ -28,6 +28,11 @@ jobs:
             git commit -m "Auto update $(date): Commit $i"
           done
 
+      - name: Debugging Environment Variables
+        run: |
+          echo "GITHUB_REPOSITORY: ${{ github.repository }}"
+          echo "PAT: ${{ secrets.PAT }}"
+
       - name: Push changes
         env:
           PAT: ${{ secrets.PAT }}
