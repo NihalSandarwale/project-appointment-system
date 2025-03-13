@@ -2,7 +2,8 @@ name: Auto Contributions
 
 on:
   schedule:
-    - cron: '30 4 * * *'
+    # Run at 11:14am IST (5:44am UTC) every day
+    - cron: '44 5 * * *'
   workflow_dispatch:
 
 jobs:
@@ -12,6 +13,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Configure git user
+        run: | 
+          git config --global user.name "NihalSandarwale"
+          git config --global user.email "nihalsandarwale@gmai.com"
 
       - name: Add multiple commits
         run: | 
