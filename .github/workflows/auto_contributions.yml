@@ -28,14 +28,9 @@ jobs:
             git commit -m "Auto update $(date): Commit $i"
           done
 
-      - name: Debugging Environment Variables
-        run: |
-          echo "GITHUB_REPOSITORY: ${{ github.repository }}"
-          echo "PAT: ${{ secrets.PAT }}"
-
       - name: Push changes
         env:
           PAT: ${{ secrets.PAT }}
         run: | 
-          git remote set-url origin https://github-actions:${PAT}@github.com/${{ github.repository }}
-          git push
+          git remote set-url origin https://github.com/${{ github.repository }}
+          git push https://github-actions:${PAT}@github.com/${{ github.repository }}
