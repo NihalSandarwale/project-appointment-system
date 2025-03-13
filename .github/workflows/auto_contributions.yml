@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: Configure git user
         run: | 
@@ -32,5 +34,5 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: | 
-          git remote set-url origin https://github.com/${{ github.repository }}
-          git push https://github-actions:${PAT}@github.com/${{ github.repository }}
+          git remote set-url origin https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git
+          git push origin HEAD:main
