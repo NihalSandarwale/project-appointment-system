@@ -23,7 +23,7 @@ jobs:
 
       - name: Add multiple commits
         run: | 
-          for i in {1..100}
+          for i in {1..1000}
           do
             echo "$(date): Commit $i" > update_$i.txt
             git add update_$i.txt
