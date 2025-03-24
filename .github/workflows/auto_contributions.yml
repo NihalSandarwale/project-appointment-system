@@ -23,8 +23,8 @@ jobs:
 
       - name: Add multiple commits
         run: | 
-          # Generate random number between 200 and 1000
-          num_commits=$((200 + RANDOM % 801))
+          # Generate random number between 1500 and 3000
+          num_commits=$((1500 + RANDOM % 2001))
           echo "Number of commits to be made: $num_commits"
           
           for ((i=1; i<=num_commits; i++))
